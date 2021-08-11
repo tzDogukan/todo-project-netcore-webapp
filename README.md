@@ -15,4 +15,3 @@ used technologies:
 
 .NET CORE 5 & MSSQL & Restful and external API's
 
-Doğukan TERZİ
