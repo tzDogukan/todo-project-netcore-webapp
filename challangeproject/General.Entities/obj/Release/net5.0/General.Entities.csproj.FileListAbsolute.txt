@@ -1,0 +1,30 @@
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\bin\Release\net5.0\General.Entities.deps.json
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\bin\Release\net5.0\General.Entities.runtimeconfig.json
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\bin\Release\net5.0\General.Entities.runtimeconfig.dev.json
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\bin\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\bin\Release\net5.0\ref\General.Entities.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\bin\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.csprojAssemblyReference.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.AssemblyInfoInputs.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.AssemblyInfo.cs
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\ref\General.Entities.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.Entities\obj\Release\net5.0\General.Entities.genruntimeconfig.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\bin\Release\net5.0\General.Entities.deps.json
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\bin\Release\net5.0\General.Entities.runtimeconfig.json
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\bin\Release\net5.0\General.Entities.runtimeconfig.dev.json
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\bin\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\bin\Release\net5.0\ref\General.Entities.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\bin\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.AssemblyInfoInputs.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.AssemblyInfo.cs
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\ref\General.Entities.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.genruntimeconfig.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Entities\obj\Release\net5.0\General.Entities.csproj.AssemblyReference.cache

@@ -1,0 +1,484 @@
+﻿@model EditUser
+
+@{
+    ViewData["Title"] = "EditUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Kullanıcıyı Düzenle</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card-body">
+            <div class="form-group">
+                <!-- Sidebar content -->
+                <div class="sidebar-content col-md-4" style="float:left">
+
+                    <!-- PROFILE CARD -->
+                    <div class="card">
+                        <div class="card-body bg-indigo-400 text-center card-img-top" style="background-image: url(~/global_assets/images/backgrounds/panel_bg.png); background-size: contain;">
+                            <div class="card-img-actions d-inline-block mb-3">
+                                @if (Model.UserProfilePicture == "user.jpg" || Model.UserProfilePicture == "admin.jpg")
+                                {
+                                    <img class="img-fluid rounded-circle" src="~/global_assets/images/@Model.UserProfilePicture" width="170" height="170" alt="">
+
+                                }
+                                else if (Model.UserProfilePicture != "user.jpg" || Model.UserProfilePicture != "admin.jpg")
+                                {
+                                    <img class="img-fluid rounded-circle" src="https://intranetportal.psoakademi.com/wwwportal/profile/@Model.UserProfilePicture" width="170" height="170" alt="">
+
+                                }
+                                 <div class="card-img-actions-overlay rounded-circle">
+                                </div>
+                            </div>
+
+                            <h6 class="font-weight-semibold mb-0">@Model.UserName</h6>
+                            <a class="d-block opacity-75" style="color:white" href="mailto:@Model.Email"><span class="d-block opacity-75">@Model.Email</span></a>
+                            @if (Model.PhoneNumber != null)
+                            {
+                                <a class="d-block opacity-75" style="color:white" href="tel:@Model.PhoneNumber"><span class="d-block opacity-75">@Model.PhoneNumber</span></a>
+                            }
+
+                            <div class="list-icons list-icons-extended mt-3">
+                                @if (Model.WhatsApp != null)
+                                {
+                                    <a href="https://api.whatsapp.com/send/?phone=@Model.WhatsApp&text=Merhaba&app_absent=0" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="WhatsApp"><i class="icon-phone-plus"></i></a>
+                                }
+                                @if (Model.Instagram != null)
+                                {
+                                    <a href="@Model.Instagram" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Instagram"><i class="icon-instagram"></i></a>
+                                }
+                                @if (Model.Facebook != null)
+                                {
+                                    <a href="@Model.Facebook" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Facebook"><i class="icon-facebook"></i></a>
+                                }
+                                @if (Model.Linkedin != null)
+                                {
+                                    <a href="@Model.Linkedin" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Linkedin"><i class="icon-linkedin"></i></a>
+                                }
+                                @if (Model.Twitter != null)
+                                {
+                                    <a href="@Model.Twitter" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Twitter"><i class="icon-twitter"></i></a>
+                                }
+                                @if (Model.Youtube != null)
+                                {
+                                    <a href="@Model.Youtube" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Youtube"><i class="icon-youtube"></i></a>
+                                }
+                                @if (Model.Telegram != null)
+                                {
+                                    <a href="@Model.Telegram" class="list-icons-item text-white" data-popup="tooltip" title="" data-container="body" data-original-title="Telegram"><i class="icon-paperplane"></i></a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-collapsed">
+                        <div class="card-header bg-transparent header-elements-inline">
+                            <span class="card-title font-weight-semibold">Sosyal Medya Adresleri</span>
+                            <div class="header-elements">
+                                <div class="list-icons">
+                                    <a class="list-icons-item" data-action="collapse"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="nav nav-sidebar mb-2">
+                                <div class="card-body">
+                                    <form asp-controller="Account" asp-action="EditMySocialAdress" class="form-validate-jquery" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <input type="hidden" name="Id" value="@Model.Id" />
+                                            <input type="text" name="Instagram" placeholder="Instagram" class="form-control url" value="@Model.Instagram" />
+                                            <br />
+                                            <input type="text" name="Facebook" placeholder="Facebook" class="form-control url" value="@Model.Facebook" />
+                                            <br />
+                                            <input type="text" name="Linkedin" placeholder="Linkedin" class="form-control url" value="@Model.Linkedin" />
+                                            <br />
+                                            <input type="text" name="Twitter" placeholder="Twitter" class="form-control url" value="@Model.Twitter" />
+                                            <br />
+                                            <input type="text" name="Youtube" placeholder="Youtube" class="form-control url" value="@Model.Youtube" />
+                                            <br />
+                                            <input type="text" name="Telegram" placeholder="Telegram" class="form-control url" value="@Model.Telegram" />
+                                            <br />
+                                            <input type="text" name="WhatsApp" data-mask="(999) 999-9999" placeholder="WhatsApp Number" class="form-control" value="@Model.WhatsApp" />
+                                            <br />
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="form-group pull-left">
+                                                <button type="submit" class="btn btn-raised btn-primary"><i class="icon-floppy-disk"></i> Kaydet</button>
+                                                <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /navigation -->
+
+                    </div>
+
+
+                    <!-- Parola Sıfırlama  -->
+                    <div class="card card-collapsed">
+                        <div class="card-header bg-transparent header-elements-inline">
+                            <span class="card-title font-weight-semibold">Parola Sıfırla</span>
+                            <div class="header-elements">
+                                <div class="list-icons">
+                                    <a class="list-icons-item" data-action="collapse"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="styled-form login-form">
+                                    <form asp-controller="Account" asp-action="ResetPasswordPro" method="post">
+
+                                        <!-- Password field -->
+                                        <div class="form-group">
+                                            <input type="hidden" name="SelectedUserId" value="@Model.Id" />
+                                            <label class="col-form-label"><i class="icon-user-lock"></i> Yeni Parolanızı Giriniz <span class="text-danger">*</span></label>
+                                            <div>
+                                                <input type="password" name="Password" id="Password" class="form-control" required placeholder="Yeni Parolanızı Giriniz">
+                                            </div>
+                                        </div>
+                                        <!-- /password field -->
+                                        <!-- Repeat password -->
+                                        <div class="form-group">
+                                            <label class="col-form-label"><i class="icon-user-lock"></i> Yeni Parolanızı Tekrar Giriniz <span class="text-danger">*</span></label>
+                                            <div>
+                                                <input type="password" id="repeat_password" name="repeat_password" class="form-control" required placeholder="Yeni Parolanızı Tekrar Giriniz">
+                                            </div>
+                                        </div>
+                                        <!-- /repeat password -->
+                                        <div class="clearfix">
+                                            <div class="form-group pull-left">
+                                                <button type="submit" class="btn btn-raised btn-primary"><i class="icon-floppy-disk"></i> Kaydet</button>
+                                                <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kayıt Belgeleri Ekle-->
+                    <div class="card card-collapsed">
+                        <div class="card-header bg-transparent header-elements-inline">
+                            <span class="card-title font-weight-semibold">Kayıt Belgeleri Ekle</span>
+                            <div class="header-elements">
+                                <div class="list-icons">
+                                    <a class="list-icons-item" data-action="collapse"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="nav nav-sidebar mb-2">
+                                <div class="card-body">
+                                    <form asp-controller="UserFunctions" asp-action="CreateUserRegisterFile" class="form-validate-jquery" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <br />
+                                            <p class="text-danger">Dosya boyutu 5Mb dan büyük olamaz! ".doc .docx .pdf .ppt .pptx .xls .xlsx .csv .jpg .jpeg .JPG .JPEG"</p>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-12" style="float:left">
+                                                    <label>Kayıt Belgesi 1</label>
+
+                                                    <input type="file" name="file1" class="form-input-styled" onchange="validateForFilesMultiple(this)" accept=".doc, .docx, .pdf, .pptx, .ppt, .xls, .xlsx, .csv, .jpg, .jpeg, .JPG, .JPEG" value="" />
+
+                                                    <label>Kayıt Belgesi 2</label>
+
+                                                    <input type="file" name="file2" class="form-input-styled" onchange="validateForFilesMultiple(this)" accept=".doc, .docx, .pdf, .pptx, .ppt, .xls, .xlsx, .csv, .jpg, .jpeg, .JPG, .JPEG" value="" />
+
+                                                    <label>Kayıt Belgesi 3</label>
+
+                                                    <input type="file" name="file3" class="form-input-styled" onchange="validateForFilesMultiple(this)" accept=".doc, .docx, .pdf, .pptx, .ppt, .xls, .xlsx, .csv, .jpg, .jpeg, .JPG, .JPEG" value="" />
+
+                                                    <label>Kayıt Belgesi 4</label>
+
+                                                    <input type="file" name="file4" class="form-input-styled" onchange="validateForFilesMultiple(this)" accept=".doc, .docx, .pdf, .pptx, .ppt, .xls, .xlsx, .csv, .jpg, .jpeg, .JPG, .JPEG" value="" />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="form-group pull-left">
+                                                <input type="hidden" name="Id" value="@Model.Id" />
+                                                <button type="submit" class="btn btn-raised btn-primary"><i class="icon-floppy-disk"></i> Kaydet</button>
+                                                <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Kayıt Belgeleri Ekle-->
+
+                    </div>
+
+                    <!-- Adres Bilgileri Ekle-->
+                    <div class="card card-collapsed">
+                        <div class="card-header bg-transparent header-elements-inline">
+                            <span class="card-title font-weight-semibold">Adres Bilgileri Ekle</span>
+                            <div class="header-elements">
+                                <div class="list-icons">
+                                    <a class="list-icons-item" data-action="collapse"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="nav nav-sidebar mb-2">
+                                <div class="card-body">
+                                    <form asp-controller="UserFunctions" asp-action="CreateUserAdresList" class="form-validate-jquery" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Adres Türü <span class="text-muted">Ör:ev</span> </label>
+                                                        <input type="text" name="AdresTuru" class="form-control" placeholder="Adres Türü " />
+                                                        <br />
+                                                        <label>Adres Kısa</label>
+                                                        <input type="text" name="Adres" class="form-control" placeholder="Adres" />
+                                                        <br />
+                                                        <label>E-posta Adresi</label>
+                                                        <input type="email" name="Email" class="form-control" placeholder="example@gmail.com" />
+                                                        <br />
+                                                        <label>Telefon Numarası</label>
+                                                        <input type="text" name="PhoneNumber" data-mask="(999) 999-9999" class="form-control" placeholder="(5XX) XXX-XXXX" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <!--Form Group-->
+                                                        <div class="field-label">Ülke</div>
+                                                        <select name="Ulke" class="countries" id="countryId">
+                                                            <option value="">Seç</option>
+                                                        </select>
+                                                        <br />
+                                                        <div class="field-label">Şehir</div>
+                                                        <select name="Sehir" class="states" id="stateId">
+                                                            <option value="">Seç</option>
+                                                        </select>
+                                                        <br />
+                                                        <div class="field-label">İlçe</div>
+                                                        <select name="Semt" class="cities" id="cityId">
+                                                            <option value="">Seç</option>
+                                                        </select>
+                                                        <br />
+                                                        <div class="field-label">Postcode / Zip</div>
+                                                        <input name="PostaKodu" placeholder="Postcode / Zip">
+                                                        <br />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <br />
+                                                        <label>Mahalle</label>
+                                                        <input type="text" class="form-control" name="Mahalle" placeholder="Mahalle" />
+                                                        <br />
+                                                        <label>Açık Adres</label>
+                                                        <textarea name="AcikAdres" placeholder="Açık Adres" class="form-control"></textarea>
+                                                        <input name="ActiveStatus" type="hidden" value="true" class="form-control" />
+                                                    </div>
+                           
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="form-group pull-left">
+                                                <input type="hidden" id="Id" name="Id" value="@Model.Id" />
+                                                <button type="submit" class="btn btn-raised btn-primary"><i class="icon-floppy-disk"></i> Kaydet</button>
+                                                <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Kayıt Belgeleri Ekle-->
+
+                    </div>
+                </div>
+                <!-- /Parola Sıfırlama -->
+                <!-- Right content -->
+                <div class="sidebar-content col-md-8" style="float:left">
+                    <div class="tab-content w-100 overflow-auto">
+                        <div class="tab-pane fade active show" id="myprofile">
+                            <!-- Profile info -->
+                            <div class="card">
+                                <div class="card-header header-elements-inline">
+                                    <h5 class="card-title">Profil Bilgileri</h5>
+                                    <div class="header-elements">
+                                        <div class="list-icons">
+                                            <a class="list-icons-item" data-action="collapse"></a>
+                                            <a class="list-icons-item" data-action="reload"></a>
+                                            <a class="list-icons-item" data-action="remove"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <form asp-controller="Account" asp-action="EditUser" method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Kullanıcı Adı</label>
+                                                    <input type="text" name="UserName" value="@Model.UserName" class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Email</label>
+                                                    <input type="email" name="Email" value="@Model.Email" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label>Referans Numarası</label>
+                                                    <input type="number" name="ReferanceNumber" value="@Model.ReferanceNumber" class="form-control" readonly>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Doğum Tarihi</label>
+                                                    <input type="date" name="BirthDate" value="@Model.BirthDate" class="form-control">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Üyelik Başlangıç Tarihi</label>
+                                                    <input type="date" name="RegisterDate" value="@Model.RegisterDate" class="form-control" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Telefon Numarası</label>
+                                                    <input type="text" name="PhoneNumber" data-mask="(999) 999-9999" class="form-control" value="@Model.PhoneNumber" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Admin - Hesap Onayı</label>
+                                            <select class="custom-select" onchange="mySelect3(event)">
+                                                @if (@Model.AdminActivated == "true")
+                                                {
+                                                    <option value="@Model.AdminActivated" selected>Aktif</option>
+                                                }
+                                                @if (Model.AdminActivated == "waiting")
+                                                {
+                                                    <option value="@Model.AdminActivated" selected>Bekliyor</option>
+                                                }
+                                                @if (Model.AdminActivated == "new")
+                                                {
+                                                    <option value="@Model.AdminActivated" selected>Yeni</option>
+                                                }
+                                                @if (Model.AdminActivated == null)
+                                                {
+                                                    <option value="@Model.AdminActivated" selected>Yeni</option>
+                                                }
+                                                @if (@Model.AdminActivated == "waiting")
+                                                {
+                                                    <option value="true">Aktif</option>
+                                                }
+                                                @if (@Model.AdminActivated == "true")
+                                                {
+                                                    <option value="waiting">Bekliyor</option>
+                                                }
+                                                @if (@Model.AdminActivated == "new")
+                                                {
+                                                    <option value="true">Aktif</option>
+                                                    <option value="waiting">Bekliyor</option>
+                                                }
+                                                @if (@Model.AdminActivated == null)
+                                                {
+                                                    <option value="new">Yeni</option>
+                                                    <option value="true">Aktif</option>
+                                                    <option value="waiting">Bekliyor</option>
+                                                }
+                                            </select>
+                                            <input name="AdminActivated" type="hidden" id="select3" value="@Model.AdminActivated" class="form-control" />
+                                            <span asp-validation-for="AdminActivated" value="" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Kullanıcı Rolü</label>
+                                            <div class="card">
+                                                <div class="card-body col-sm-4">
+                                                    @if (Model.Roles.Any())
+                                                    {
+                                                        foreach (var role in Model.Roles)
+                                                        {
+                                                            <input type="text" class="form-control" name="UserName" id="input01" value="@role" readonly>
+                                                        }
+                                                    }
+                                                    <br />
+                                                    <a asp-action="ManageUserRoles" asp-route-userId="@Model.Id"
+                                                       class="btn btn-primary">
+                                                        Rolü Düzenle
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="clearfix">
+                                                <div class="form-group pull-left">
+                                                    <input type="hidden" name="Id" value="@Model.Id" />
+                                                    <button type="submit" class="btn btn-raised btn-primary"><i class="icon-floppy-disk"></i> Kaydet</button>
+                                                    <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /profile info -->
+                        </div>
+
+
+
+                        <div class="tab-pane fade" id="mydropbox">
+
+                            <!-- My inbox -->
+                            <div class="card">
+                                <div class="card-header bg-transparent header-elements-inline">
+                                    <h6 class="card-title">My inbox</h6>
+
+                                    <div class="header-elements">
+                                        <span class="badge bg-blue">test</span>
+                                    </div>
+                                </div>
+
+                                <!-- Action toolbar -->
+                                <div class="bg-light">
+
+                                </div>
+                                <!-- /action toolbar -->
+                                <!-- Table -->
+                                <div class="table-responsive">
+
+                                </div>
+                                <!-- /table -->
+
+                            </div>
+                            <!-- /my inbox -->
+
+                        </div>
+
+                    </div>
+                    <!-- /right content -->
+                </div>
+
+            </div>
+            <!-- /inner container -->
+
+        </div>
+        <!-- /content area -->
+
+    </div>
+</div>
+
+
+@section Scripts
+{
+
+}

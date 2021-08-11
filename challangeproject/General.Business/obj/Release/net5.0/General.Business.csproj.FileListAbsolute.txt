@@ -1,0 +1,34 @@
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\General.Business.deps.json
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\General.Business.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\ref\General.Business.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\General.Business.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\General.DataAccess.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\General.DataAccess.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\bin\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.csprojAssemblyReference.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.AssemblyInfoInputs.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.AssemblyInfo.cs
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.csproj.CopyComplete
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\ref\General.Business.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.Business\obj\Release\net5.0\General.Business.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\General.Business.deps.json
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\General.Business.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\ref\General.Business.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\General.Business.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\General.DataAccess.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\General.DataAccess.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\bin\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.AssemblyInfoInputs.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.AssemblyInfo.cs
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.csproj.CopyComplete
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\ref\General.Business.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.Business\obj\Release\net5.0\General.Business.csproj.AssemblyReference.cache

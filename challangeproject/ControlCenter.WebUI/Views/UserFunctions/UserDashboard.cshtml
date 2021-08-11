@@ -1,0 +1,570 @@
+﻿@model UserFunctionMasterModel
+@{
+    ViewData["Title"] = "MyDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Kullanıcı Servisleri :<b> @Model.appUser.NameSurname</b> </h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card-body">
+            <div class="form-group">
+                <!-- Sidebar content -->
+                <div class="sidebar-content col-md-2" style="float:left">
+                    <div class="card-body p-0">
+                        <ul class="nav nav-sidebar mb-2">
+                            <li class="nav-item">
+                                <a href="#myregfile" class="nav-link" data-toggle="tab">
+                                    <i class="icon-file-pdf"></i>
+                                    Kayıt Belgeleri
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#myusercontent" class="nav-link" data-toggle="tab">
+                                    <i class="icon-user-tie"></i>
+                                    Hakkımda
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#myadress" class="nav-link" data-toggle="tab">
+                                    <i class="icon-file-text"></i>
+                                    Adresler
+                                </a>
+                            </li>
+
+                            <li class="nav-item-divider"></li>
+                        </ul>
+                    </div>
+                    <!-- /navigation -->
+
+                </div>
+            </div>
+            <!-- /sidebar content -->
+            <!-- Right content -->
+            <div class="sidebar-content col-md-10" style="float:left">
+                <div class="tab-content w-100 overflow-auto">
+                    <!-- My Register File -->
+
+                    <div class="tab-pane fade active show" id="myregfile">
+                        <div class="card">
+                            <div class="card-header bg-primary header-elements-inline">
+                                <span class="card-title font-weight-semibold">Kayıt Belgeleri</span>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <form asp-controller="UserFunctions" asp-action="DeleteUserRegisterFile" method="post">
+                                    <div class="card-body">
+                                        <table class="table datatable-column-search-selects">
+                                            <thead>
+                                                <tr>
+                                                    <th><input type="checkbox" id="checkAll" />&nbsp;<input type="submit" class="btn btn-dark" value="Sil" onclick="return confirm('Silmek İşlemine Devam Edilsin mi?')" /></th>
+
+                                                    <th>Bir Adet Fotoğraf</th>
+                                                    <th>Kimlik Fotoğrafı</th>
+                                                    <th>Sağlık Raporu</th>
+                                                    <th>Kayıt Formu</th>
+
+                                                    <th class="text-center">Düzenle</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var Model in Model.UserRegisterFiles)
+                                                {
+                                                    <tr>
+                                                        <td><input type="checkbox" name="Id" class="cb-element" value="@Model.Id" /></td>
+                                                        <td>
+                                                            @if (@Model.File1 != null && Model.File1 != "default.jpg")
+                                                            {
+                                                                <br />
+                                                                <a href="https://intranetportal.psoakademi.com/wwwportal/file/registerfile/@Model.File1" target="_blank"><img loading="lazy" class="img-fluid rounded-circle" src="https://intranetportal.psoakademi.com/wwwportal/file/registerfile/@Model.File1" alt="3.Fotoğraf" style="width:50px; height:50px;" /></a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Dosya Yüklenmedi</p>
+                                                            }
+                                                        </td>
+                                                        <td>
+
+                                                            @if (@Model.File2 != null && Model.File2 != "default.jpg")
+                                                            {
+                                                                <br />
+
+                                                                <a href="https://intranetportal.psoakademi.com/wwwportal/file/registerfile/@Model.File2" target="_blank"><img loading="lazy" class="img-fluid rounded-circle" src="https://intranetportal.psoakademi.com/wwwportal/file/registerfile/@Model.File2" alt="3.Fotoğraf" style="width:50px; height:50px;" /></a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Dosya Yüklenmedi</p>
+                                                            }
+                                                        </td>
+                                                        <td>
+
+                                                            @if (@Model.File3 != null && Model.File3 != "default.pdf")
+                                                            {
+                                                                <br />
+                                                                <a href="https://intranetportal.psoakademi.com/wwwportal/file/registerfile/@Model.File3" target="_blank">Dosyayı Tıkla ve İndir</a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Dosya Yüklenmedi</p>
+                                                            }
+                                                        </td>
+                                                        <td>
+
+                                                            @if (@Model.File4 != null && Model.File4 != "default.pdf")
+                                                            {
+                                                                <br />
+                                                                <a href="https://intranetportal.psoakademi.com/wwwportal/file/registerfile/@Model.File4" target="_blank">Dosyayı Tıkla ve İndir</a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Dosya Yüklenmedi</p>
+                                                            }
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <div class="dropdown">
+                                                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                                        <i class="icon-menu9"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="/UserFunctions/EditUserRegisterFile/@Model.Id"><i class="icon-pencil3"></i> Düzenle</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- My UserContent -->
+                    <div class="tab-pane fade" id="myusercontent">
+                        <div class="card">
+                            <div class="card-header bg-primary header-elements-inline">
+                                <span class="card-title font-weight-semibold">Hakkımda</span>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <form asp-controller="UserFunctions" asp-action="DeleteUserContent" method="post">
+                                    <div class="card-body">
+                                        <table class="table datatable-column-search-selects">
+                                            <thead>
+                                                <tr>
+                                                    <th><input type="checkbox" id="checkAll" />&nbsp;<input type="submit" class="btn btn-dark" value="Sil" onclick="return confirm('Silmek İşlemine Devam Edilsin mi?')" /></th>
+
+                                                    <th>Kullanıcı Profil Resmi</th>
+                                                    <th>Tarih</th>
+                                                    <th>Hakkımda Yazısı</th>
+                                                    <th>Kişiye özel içerik</th>
+
+                                                    <th class="text-center">Düzenle</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var Model in Model.UserContents)
+                                                {
+                                                    <tr>
+                                                        <td><input type="checkbox" name="Id" class="cb-element" value="@Model.Id" /></td>
+                                                        <td>
+
+                                                            @if (Model.Content1 == "user.jpg" || Model.Content1 == "admin.jpg")
+                                                            {
+                                                                <img loading="lazy" class="img-fluid rounded-circle" src="~/global_assets/images/@Model.Content1" style="width:50px; height:50px;" />
+
+                                                            }
+                                                            else if (Model.Content1 != "user.jpg" || Model.Content1 != "admin.jpg")
+                                                            {
+                                                                <img loading="lazy" class="img-fluid rounded-circle" src="https://intranetportal.psoakademi.com/wwwportal/profile/@Model.Content1" style="width:50px; height:50px;" />
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Profil Resmi Yok</p>
+                                                            }
+                                                        </td>
+                                                        <td>@Model.Date</td>
+                                                        <td>
+
+                                                            @if (@Model.Content2 != null)
+                                                            {
+                                                                <br />
+                                                                <p>Hakkımda Yazısı Bulunuyor</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Mevcut değil</p>
+                                                            }
+                                                        </td>
+                                                        <td>
+
+                                                            @if (@Model.Content3 != null)
+                                                            {
+                                                                <br />
+                                                                <p>Kullanıcı içeriği bulunuyor</p>
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>Mevcut değil</p>
+                                                            }
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <div class="dropdown">
+                                                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                                        <i class="icon-menu9"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="/UserFunctions/EditUserContent/@Model.Id"><i class="icon-pencil3"></i> Düzenle</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- My Dropbox -->
+                    <div class="tab-pane fade" id="mydropbox">
+                        <div class="card">
+                            <div class="card-header bg-primary header-elements-inline">
+                                <span class="card-title font-weight-semibold">Dosyalar</span>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+
+                                <div class="card-body">
+                                    <table class="table datatable-column-search-selects">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>61</td>
+                                                <td><a href="#">2011/04/25</a></td>
+                                                <td><span class="badge badge-info">$320,800</span></td>
+                                                <td class="text-center">
+                                                    <div class="list-icons">
+                                                        <div class="dropdown">
+                                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                                <i class="icon-menu9"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Export to .pdf</a>
+
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-word"></i> Export to .doc</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- My Adress -->
+                    <div class="tab-pane fade" id="myadress">
+                        <div class="card">
+                            <div class="card-header bg-primary header-elements-inline">
+                                <span class="card-title font-weight-semibold">Adresler</span>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <form asp-controller="UserFunctions" asp-action="DeleteUserAdresList" method="post">
+
+                                    <div class="card-body">
+                                        <table class="table datatable-column-search-selects">
+                                            <thead>
+                                                <tr>
+                                                    <th><input type="checkbox" id="checkAll" />&nbsp;<input type="submit" class="btn btn-dark" value="Sil" onclick="return confirm('Silmek İşlemine Devam Edilsin mi?')" /></th>
+                                                    <th>Adres Türü</th>
+                                                    <th>Açık Adres</th>
+                                                    <th>Telefon</th>
+                                                    <th>E-posta</th>
+                                                    <th>Durum</th>
+                                                    <th class="text-center">Düzenle</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var Model in Model.UserAdresLists)
+                                                {
+                                                    <tr>
+                                                        <td><input type="checkbox" name="Id" class="cb-element" value="@Model.Id" /></td>
+                                                        <td>@Model.AdresTuru</td>
+                                                        <td>@Model.AcikAdres</td>
+                                                        <td>@Model.Phone</td>
+                                                        <td>@Model.Email</td>
+                                                        @if (Model.ActiveStatus == "true")
+                                                        {
+                                                            <td><span class="badge badge-info">Güncel</span></td>
+                                                        }
+                                                        else if (Model.ActiveStatus == "false")
+                                                        {
+                                                            <td><span class="badge badge-danger">Geçerli Değil</span></td>
+                                                        }
+                                                        else if (Model.ActiveStatus == null)
+                                                        {
+                                                            <td><span class="badge badge-warning">Seçilmemiş</span></td>
+                                                        }
+                                                        <td class="text-center">
+                                                            <div class="list-icons">
+                                                                <div class="dropdown">
+                                                                    <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                                        <i class="icon-menu9"></i>
+                                                                    </a>
+
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="/UserFunctions/EditUserAdresList/@Model.Id"><i class="icon-pencil3"></i> Düzenle</a>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- My Comments -->
+                    <div class="tab-pane fade" id="mycomment">
+                        <div class="card">
+                            <div class="card-header bg-primary header-elements-inline">
+                                <span class="card-title font-weight-semibold">Yorumlar</span>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <table class="table datatable-column-search-selects">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>61</td>
+                                                <td><a href="#">2011/04/25</a></td>
+                                                <td><span class="badge badge-info">$320,800</span></td>
+                                                <td class="text-center">
+                                                    <div class="list-icons">
+                                                        <div class="dropdown">
+                                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                                <i class="icon-menu9"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Export to .pdf</a>
+
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-word"></i> Export to .doc</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- My Task -->
+                    <div class="tab-pane fade" id="mytask">
+                        <div class="card">
+                            <div class="card-header bg-primary header-elements-inline">
+                                <span class="card-title font-weight-semibold">Görevler</span>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <table class="table datatable-column-search-selects">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>61</td>
+                                                <td><a href="#">2011/04/25</a></td>
+                                                <td><span class="badge badge-info">$320,800</span></td>
+                                                <td class="text-center">
+                                                    <div class="list-icons">
+                                                        <div class="dropdown">
+                                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                                <i class="icon-menu9"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Export to .pdf</a>
+
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-word"></i> Export to .doc</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- My Notice -->
+                    <div class="tab-pane fade" id="mynotice">
+                        <div class="card">
+                            <div class="card-header bg-primary header-elements-inline">
+                                <span class="card-title font-weight-semibold">Bildirimler</span>
+                                <div class="header-elements">
+                                    <div class="list-icons">
+                                        <a class="list-icons-item" data-action="collapse"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <table class="table datatable-column-search-selects">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Position</th>
+                                                <th>Age</th>
+                                                <th>Start date</th>
+                                                <th>Salary</th>
+                                                <th class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Tiger Nixon</td>
+                                                <td>System Architect</td>
+                                                <td>61</td>
+                                                <td><a href="#">2011/04/25</a></td>
+                                                <td><span class="badge badge-info">$320,800</span></td>
+                                                <td class="text-center">
+                                                    <div class="list-icons">
+                                                        <div class="dropdown">
+                                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                                <i class="icon-menu9"></i>
+                                                            </a>
+
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Export to .pdf</a>
+
+                                                                <a href="#" class="dropdown-item"><i class="icon-file-word"></i> Export to .doc</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /right content -->
+            </div>
+
+        </div>
+        <!-- /inner container -->
+
+    </div>
+    <!-- /content area -->
+</div>
+
+@section Scripts
+{
+    <script src="~/global_assets/js/demo_pages/datatables_api.js"></script>
+    @if (TempData["UserDashboardSuccess"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                Swal.fire('Success', 'success');
+            });
+
+        </script>
+    }
+}

@@ -1,0 +1,36 @@
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\General.DataAccess.deps.json
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\General.DataAccess.runtimeconfig.json
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\General.DataAccess.runtimeconfig.dev.json
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\General.DataAccess.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\ref\General.DataAccess.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\General.DataAccess.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\bin\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.csprojAssemblyReference.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.AssemblyInfoInputs.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.AssemblyInfo.cs
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.csproj.CopyComplete
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\ref\General.DataAccess.dll
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.pdb
+C:\Users\OSX\Desktop\orjinsaglam\General.DataAccess\obj\Release\net5.0\General.DataAccess.genruntimeconfig.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\General.DataAccess.deps.json
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\General.DataAccess.runtimeconfig.json
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\General.DataAccess.runtimeconfig.dev.json
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\General.DataAccess.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\ref\General.DataAccess.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\General.DataAccess.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\General.Entities.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\bin\Release\net5.0\General.Entities.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.AssemblyInfoInputs.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.AssemblyInfo.cs
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.csproj.CopyComplete
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\ref\General.DataAccess.dll
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.pdb
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.genruntimeconfig.cache
+C:\Users\OSX\Desktop\PSO AKADEMİ\General.DataAccess\obj\Release\net5.0\General.DataAccess.csproj.AssemblyReference.cache

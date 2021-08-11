@@ -1,0 +1,183 @@
+﻿@model userTaskModel
+
+
+@{
+    ViewData["Title"] = "TO - DO  | YÖNETİM SİSTEMİ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+<table id="example" class="table datatable-column-search-selects">
+    <thead>
+        <tr>
+            <th>Tarih</th>
+            <th>Öncelik</th>
+            <th>Başlık</th>
+            <th>İçerik</th>
+            <th>Durum</th>
+            <th class="text-center">Düzenle</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.userTasks != null)
+        {
+            @foreach (var item in Model.userTasks)
+            {
+                int pastTime = Convert.ToInt32((DateTime.Now - item.Date).TotalDays);
+                <tr>
+                    <td class="text-center">
+                        @if (pastTime == 0 || pastTime < 1)
+                        {
+                            pastTime = Convert.ToInt32((DateTime.Now - item.Date).TotalHours);
+                            <h6 class="mb-0">@pastTime</h6>
+                            <div class="font-size-sm text-muted line-height-1">saat önce</div>
+                        }
+                        else
+                        {
+                            <h6 class="mb-0">@pastTime</h6>
+                            <div class="font-size-sm text-muted line-height-1">gün önce</div>
+                        }
+
+                    </td>
+                    @if (item.Priority == "0")
+                    {
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="mr-3">
+                                    <a href="#" class="btn bg-grey-400 rounded-round btn-icon btn-sm">
+                                        <span class="letter-icon"></span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Düşük</a>
+                                </div>
+                            </div>
+                        </td>
+                    }
+                    else if (item.Priority == "1")
+                    {
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="mr-3">
+                                    <a href="#" class="btn bg-success-400 rounded-round btn-icon btn-sm">
+                                        <span class="letter-icon"></span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Normal</a>
+                                </div>
+                            </div>
+                        </td>
+                    }
+                    else if (item.Priority == "2")
+                    {
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="mr-3">
+                                    <a href="#" class="btn bg-danger-400 rounded-round btn-icon btn-sm">
+                                        <span class="letter-icon"></span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Yüksek</a>
+                                </div>
+                            </div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="mr-3">
+                                    <a href="#" class="btn bg-warning-400 rounded-round btn-icon btn-sm">
+                                        <span class="letter-icon"></span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#" class="text-default font-weight-semibold letter-icon-title">Bilinmiyor</a>
+                                </div>
+                            </div>
+                        </td>
+                    }
+
+                    <td>
+                        <div class="d-flex align-items-center">
+
+                            <div>
+                                <a href="#" class="text-default font-weight-semibold letter-icon-title">@item.Subject</a>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="font-weight-semibold">@item.Content</div>
+                        <span class="text-muted"><a class="text-default  letter-icon-title" href="~/doFiles/@item.fileUrl">Dosyayı görüntülemek için tıklayın.</a></span>
+                    </td>
+                    @if (item.Status == "Active")
+                    {
+                        <td>
+                            <div class="text-muted font-size-sm"><span class="badge badge-mark border-blue mr-1"></span> Aktif</div>
+                        </td>
+                    }
+                    else if (item.Status == "Complated")
+                    {
+                        <td>
+                            <div class="text-muted font-size-sm"><span class="badge badge-mark border-success mr-1"></span> Tamamlandı</div>
+                        </td>
+                    }
+                    else if (item.Status == "Cancelled")
+                    {
+                        <td>
+                            <div class="text-muted font-size-sm"><span class="badge badge-mark border-danger mr-1"></span> Tamamlandı</div>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <div class="text-muted font-size-sm"><span class="badge badge-mark border-blue mr-1"></span> Aktif</div>
+                        </td>
+                    }
+                    <td class="text-center">
+                        <div class="list-icons">
+                            <div class="list-icons-item dropdown">
+                                <a href="#" class="list-icons-item dropdown-toggle caret-0" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="/ControlCenter/EditDo/@item.Id" class="dropdown-item"><i class="icon-undo"></i> Düzenle</a>
+                                    <form asp-controller="ControlCenter" asp-action="DeleteDo" method="post">
+                                        <input type="hidden" name="doId" value="@item.Id" />
+                                        <button class="dropdown-item" type="submit"><i class="icon-cross2 text-danger"></i>Sil</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+
+                </tr>
+            }
+        }
+
+
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+@section Scripts
+{
+
+
+}

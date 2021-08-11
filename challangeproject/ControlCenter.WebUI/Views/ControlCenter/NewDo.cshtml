@@ -1,0 +1,73 @@
+﻿@model userTaskModel
+
+@{
+    ViewData["Title"] = "NewDo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>New Do</h2>
+
+
+    <div class="col-12">
+        <div class="card-body">
+            <div class="form-group">
+
+                <form asp-controller="ControlCenter" asp-action="NewDo" method="post" class="form-validate-jquery" enctype="multipart/form-data">
+
+                    <label><b>Başlık</b></label>
+                    <input type="text" name="Subject" value="@Model.Subject" class="form-control" />
+                    <span asp-validation-for="Subject" value="" class="text-danger"></span>
+
+                    <label> <b>İçerik </b><span class="chars-counter" style="color:red;"></span></label>
+                    <input type="text" name="Content" value="@Model.Content" maxlength="67" class="form-control charactercounter" />
+                    <span asp-validation-for="Content" value="" class="text-danger"></span>
+
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4" style="float:left">
+                                <br />
+                                <p class="text-danger">Dosya boyutu 2Mb dan büyük olamaz! ".jpg .jpeg .JPG .JPEG"</p>
+                                <br />
+                                <label>İçerik Dosya</label>
+                                <input type="hidden" name="ImageUrl" value="@Model.fileUrl" />
+                                <input type="file" name="file" class="form-input-styled"  value="" />
+
+
+                            </div>
+                            <span asp-validation-for="fileUrl" value="" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-md-3" style="float:left">
+                                <label>Öncelik</label>
+                                <select class="custom-select" onchange="mySelect1(event)">
+                                    <option value="">Select</option>
+                                    <option value="0">Düşük</option>
+                                    <option value="1">Normal</option>
+                                    <option value="2">Yüksek</option>
+                                </select>
+                                <input name="Priority" id="select1" type="hidden" value="@Model.Priority" class="form-control" />
+                                <span asp-validation-for="Priority" value="" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3" style="float:left">
+                            </div>
+                            <div class="col-md-3" style="float:left">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <br />
+                    <button type="submit" class="btn btn-raised btn-primary" id="form3Submit"><i class="icon-plus2"></i> Oluştur</button>
+                    <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>

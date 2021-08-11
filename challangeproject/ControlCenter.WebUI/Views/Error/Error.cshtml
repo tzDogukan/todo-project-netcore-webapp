@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta charset="ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR</title>
+    <meta http-equiv="content-language" content="TR">
+    <meta http-equiv="content-language" content="ENG">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="Copyright" content="Copyright © 2021, RESPONSIVE SOFT">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="Pragma" content="no-cache">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/assetsError/css/bootstrap.css">
+    <link rel="stylesheet" href="~/assetsError/css/app.css">
+    <link rel="stylesheet" href="~/assetsError/css/error.css">
+    <link rel="shortcut icon" href="~/assetsError/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="error">
+
+
+        <div class="error-page container">
+            <div class="col-md-8 col-12 offset-md-2">
+                <img class="img-error" src="~/assetsError/images/error.png" alt="Not Found">
+                <div class="text-center">
+                    <h1 class="error-title">System Error Code: @ViewBag.ErrorCode</h1>
+
+
+                    @if (@ViewBag.ErrorCode == Convert.ToInt32("500"))
+                    {
+                        <p class="fs-5 text-gray-600">
+                            The website is currently unaivailable. Try again later or contact the
+                            developer.
+                        </p>
+                    }
+                    @if (@ViewBag.ErrorCode == Convert.ToInt32("404"))
+                    {
+                        <p class="fs-5 text-gray-600">
+                            The page you are looking not found.
+                        </p>
+                    }
+                    @if (@ViewBag.ErrorCode == Convert.ToInt32("403"))
+                    {
+                        <p class="fs-5 text-gray-600">
+                            You are unauthorized to see this page.
+                        </p>
+                    }
+
+
+                    <a asp-controller="ControlCenter" asp-action="Index" class="btn btn-lg btn-outline-primary mt-3">Go Home</a>
+                </div>
+
+                <br />
+                <br />
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

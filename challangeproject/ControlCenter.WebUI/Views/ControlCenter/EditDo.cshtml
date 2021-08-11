@@ -1,0 +1,109 @@
+﻿@model userTaskModel
+
+@{
+    ViewData["Title"] = "EditDo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Do</h2>
+
+
+<div class="col-12">
+    <div class="card-body">
+        <div class="form-group">
+
+            <form asp-controller="ControlCenter" asp-action="EditDo" method="post" class="form-validate-jquery" enctype="multipart/form-data">
+
+                <label><b>Başlık</b></label>
+                <input type="text" name="Subject" value="@Model.Subject" class="form-control" />
+                <span asp-validation-for="Subject" value="" class="text-danger"></span>
+
+                <label> <b>İçerik </b><span class="chars-counter" style="color:red;"></span></label>
+                <input type="text" name="Content" value="@Model.Content" maxlength="67" class="form-control charactercounter" />
+                <span asp-validation-for="Content" value="" class="text-danger"></span>
+
+                <label> <b>Tarih </b><span class="chars-counter" style="color:red;"></span></label>
+                <input type="date" name="Date" value="@Model.Date" maxlength="67" class="form-control charactercounter" />
+                <span asp-validation-for="Date" value="" class="text-danger"></span>
+
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4" style="float:left">
+                            <br />
+                            <p class="text-shadow-light" style="color:gold"><a href="~/doFiles/@Model.fileUrl" class="text-shadow-light">Yüklenmiş dosya içeriği</a>
+</p>
+                            <br />
+                            <label>İçerik Dosya</label>
+                            <input type="hidden" name="ImageUrl" value="@Model.fileUrl" />
+                            <input type="file" name="file" class="form-input-styled" value="" />
+
+
+                        </div>
+                        <span asp-validation-for="fileUrl" value="@Model.fileUrl" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+
+                        <div class="col-md-3" style="float:left">
+                            <label>Öncelik</label>
+                            <select class="custom-select" onchange="mySelect1(event)">
+                                @if (@Model.Priority == "0")
+                                {
+                                    <option value="@Model.Priority" selected>Düşük</option>
+                                }
+                                @if (Model.Priority == "1")
+                                {
+                                    <option value="@Model.Priority" selected>Normal</option>
+                                }
+                                @if (Model.Priority == "2")
+                                {
+                                    <option value="@Model.Priority" selected>Yüksek</option>
+                                }
+                                <option value="0">Düşük</option>
+                                <option value="1">Normal</option>
+                                <option value="2">Yüksek</option>
+                            </select>
+                            <input name="Priority" id="select1" type="hidden" value="@Model.Priority" class="form-control" />
+                            <span asp-validation-for="Priority" value="" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-3" style="float:left">
+                            <label>Durum</label>
+                            <select class="custom-select" onchange="mySelect2(event)">
+                                @if (@Model.Status == "Active")
+                                {
+                                    <option value="Active" selected>Aktif</option>
+                                }
+                                @if (Model.Status == "Complated")
+                                {
+                                    <option value="Complated" selected>Tamamlandı</option>
+                                }
+                                @if (Model.Status == "Cancelled")
+                                {
+                                    <option value="Cancelled" selected>İptal</option>
+                                }
+                                <option value="Active">Aktif</option>
+                                <option value="Complated">Tamamlandı</option>
+                                <option value="Cancelled">İptal</option>
+
+                            </select>
+                            <input name="Status" id="select2" type="hidden" value="@Model.Status" class="form-control" />
+                            <span asp-validation-for="Status" value="" class="text-danger"></span>
+
+                            <div class="col-md-3" style="float:left">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <br />
+                    <button type="submit" class="btn btn-raised btn-primary" id="form3Submit"><i class="icon-plus2"></i> Kaydet</button>
+                    <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>

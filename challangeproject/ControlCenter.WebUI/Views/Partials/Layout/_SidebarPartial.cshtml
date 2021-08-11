@@ -1,0 +1,59 @@
+﻿<ul class="nav nav-sidebar" data-nav-type="accordion">
+
+    <!-- Main -->
+    <li class="nav-item">
+        <a asp-controller="ControlCenter" asp-action="Index" class="nav-link">
+            <i class="mi-wb-sunny"></i>
+            <span>
+                Bugün
+            </span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a asp-controller="ControlCenter" asp-action="Importants" class="nav-link">
+            <i class="mi-important-devices"></i>
+            <span>
+                Önemliler
+
+            </span>
+            &nbsp;<span class="badge badge-pill bg-danger-400 ml-auto ml-md-0">@ViewData["importantDos"]</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a asp-controller="ControlCenter" asp-action="Complated" class="nav-link">
+            <i class="mi-check-circle"></i>
+            <span>
+                Tamamlanmışlar
+                &nbsp;<span class="badge badge-pill bg-success-400 ml-auto ml-md-0">@ViewData["complatedDos"]</span>
+
+            </span>
+
+        </a>
+    </li>
+    <li class="nav-item">
+        <a asp-controller="ControlCenter" asp-action="AllList" class="nav-link">
+            <i class="mi-event-note"></i>
+            <span>
+                Hepsi
+                &nbsp;<span class="badge badge-pill bg-blue-400 ml-auto ml-md-0">@ViewData["allDos"]</span>
+
+            </span>
+
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a asp-controller="ControlCenter" asp-action="NewDo" class="nav-link">
+            <i class="mi-plus-one"></i>
+            <span>
+                Yeni Not Ekle
+
+            </span>
+
+        </a>
+    </li>
+
+
+
+</ul>

@@ -1,0 +1,73 @@
+﻿@model UserRegisterFileModel
+
+@{
+    ViewData["Title"] = "EditUserRegisterFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Kullanıcı Kayıt Belgesini Düzenle</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12">
+        <div class="card-body">
+            <div class="form-group">
+
+                <form asp-controller="UserFunctions" asp-action="EditUserRegisterFile" method="post" class="form-validate-jquery" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-md-12" style="float:left">
+
+                                <div class="col-md-3" style="float:left">
+                                    <label>Bir Adet Fotoğraf</label>
+                                    <input type="hidden" name="File1" value="@Model.File1" />
+                                    <input type="file" name="file1" class="form-input-styled" onchange="validateForImages(this)" accept=".jpg, .jpeg, .JPG, .JPEG" />
+                                    <span asp-validation-for="File1" value="" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-3" style="float:left">
+                                    <label>Kimlik Fotoğrafı</label>
+                                    <input type="hidden" name="File2" value="@Model.File2" />
+                                    <input type="file" name="file2" class="form-input-styled" onchange="validateForImages(this)" accept=".jpg, .jpeg, .JPG, .JPEG" />
+                                    <span asp-validation-for="File2" value="" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-3" style="float:left">
+                                    <label>Sağlık Raporu</label>
+                                    <input type="hidden" name="File3" value="@Model.File3" />
+                                    <input type="file" name="file3" class="form-input-styled" onchange="validateForFilesMultiple(this)" accept=".doc, .docx, .pdf, .pptx, .ppt, .xls, .xlsx, .csv, .jpg, .jpeg, .JPG, .JPEG" value="" />
+                                    <span asp-validation-for="File3" value="" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-3" style="float:left">
+                                    <label>Kayıt Formu</label>
+                                    <input type="hidden" name="File4" value="@Model.File4" />
+                                    <input type="file" name="file4" class="form-input-styled" onchange="validateForFilesMultiple(this)" accept=".doc, .docx, .pdf, .pptx, .ppt, .xls, .xlsx, .csv, .jpg, .jpeg, .JPG, .JPEG" value="" />
+                                    <span asp-validation-for="File4" value="" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <button type="submit" class="btn btn-raised btn-primary" id="form3Submit"><i class="icon-floppy-disk"></i> Kaydet</button>
+                    <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

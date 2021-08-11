@@ -1,0 +1,104 @@
+﻿@model UserAdresListModel
+
+@{
+    ViewData["Title"] = "EditUserAdresList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Adresi Düzenle</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12">
+        <div class="card-body">
+            <form asp-controller="UserFunctions" asp-action="EditUserAdresList" class="form-validate-jquery" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Adres Türü <span class="text-muted">Ör:ev</span> </label>
+                                <input type="text" name="AdresTuru" class="form-control" value="@Model.AdresTuru" placeholder="Adres Türü " />
+                                <br />
+                                <label>Adres Kısa</label>
+                                <input type="text" name="Adres" class="form-control" value="@Model.Adres" placeholder="Adres" />
+                                <br />
+                                <label>E-posta Adresi</label>
+                                <input type="email" name="Email" class="form-control" value="@Model.Email" placeholder="example@gmail.com" />
+                                <br />
+                                <label>Telefon Numarası</label>
+                                <input type="text" name="Phone" data-mask="(999) 999-9999" value="@Model.Phone" class="form-control" placeholder="(5XX) XXX-XXXX" />
+                            </div>
+                            <div class="form-group">
+                                <!--Form Group-->
+                                <div class="field-label">Ülke</div>
+                                <select name="Ulke" class="countries" value="@Model.Ulke" id="countryId">
+                                    <option value="">Seç</option>
+                                </select>
+                                <br />
+                                <div class="field-label">Şehir</div>
+                                <select name="Sehir" class="states" value="@Model.Sehir" id="stateId">
+                                    <option value="">Seç</option>
+                                </select>
+                                <br />
+                                <div class="field-label">İlçe</div>
+                                <select name="Semt" class="cities" value="@Model.Semt" id="cityId">
+                                    <option value="">Seç</option>
+                                </select>
+                                <br />
+                                <div class="field-label">Postcode / Zip</div>
+                                <input name="PostaKodu" value="@Model.PostaKodu" placeholder="Postcode / Zip">
+                                <br />
+                            </div>
+                            <div class="form-group">
+                                <br />
+                                <label>Mahalle</label>
+                                <input type="text" class="form-control" value="@Model.Mahalle" name="Mahalle" placeholder="Mahalle" />
+                                <br />
+                                <label>Açık Adres</label>
+                                <textarea name="AcikAdres" placeholder="Açık Adres" value="@Model.AcikAdres" class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3" style="float:left">
+                                    <label>Durumu</label>
+                                    <select class="custom-select" onchange="mySelect3(event)">
+                                        <option value="">Seç</option>
+                                        <option value="true">Güncel</option>
+                                        <option value="false">Geçerli Değil</option>
+                                    </select>
+                                    <input name="ActiveStatus" type="hidden" id="select3" value="@Model.ActiveStatus" class="form-control" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    <div class="form-group pull-left">
+                        <input type="hidden" name="Id" value="@Model.Id" />
+                        <button type="submit" class="btn btn-raised btn-primary"><i class="icon-floppy-disk"></i> Kaydet</button>
+                        <button type="reset" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Sıfırla</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+}
+
+

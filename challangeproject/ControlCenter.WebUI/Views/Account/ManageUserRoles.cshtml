@@ -1,0 +1,50 @@
+﻿@model List<UserRoles>
+
+@{
+    ViewData["Title"] = "ManageUserRoles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Kullanıcının Rolü</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+                <a class="list-icons-item" data-action="remove"></a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12">
+        <div class="card-body">
+            <div class="form-group">
+                @{
+                    var userId = ViewBag.userId;
+                }
+                <form method="post">
+                    <div class="card-body">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <div class="form-check m-1">
+                                <input type="hidden" asp-for="@Model[i].RoleId" />
+                                <input type="hidden" asp-for="@Model[i].RoleName" />
+                                <input asp-for="@Model[i].IsSelected" class="form-check-input" />
+                                <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                                    @Model[i].RoleName
+                                </label>
+                            </div>
+                        }
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                    </div>
+                    <button type="submit" class="btn btn-raised btn-primary" id="form3Submit"><i class="icon-floppy-disk"></i> Kaydet</button>
+                    <a asp-action="EditUser" asp-route-id="@userId" class="btn btn-raised btn-danger"><i class="icon-reset"></i> Vazgeç</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
