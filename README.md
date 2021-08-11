@@ -14,4 +14,4 @@ You should simply write -dotnet ef migrations update to the console in the data 
 used technologies:
 
 .NET CORE 5 & MSSQL & Restful and external API's
-
+code first & EF6
