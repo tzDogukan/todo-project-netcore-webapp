@@ -11,8 +11,7 @@ namespace ControlCenter.WebUI.EmailServices
     public class EmailSender : IEmailSender
     {//
 
-        //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
-        private const string SendGridKey = "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";
+        private const string SendGridKey = "EMAIL API KEY";
         public Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
             return Execute(SendGridKey, subject, htmlMessage, email);
@@ -24,7 +23,7 @@ namespace ControlCenter.WebUI.EmailServices
 
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("info.responsivesoft@gmail.com", "RESPONSIVE SOFT"),
+                From = new EmailAddress("MAIL SENDER EMAIL ADRESS", "MAIL TITLE"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message,
